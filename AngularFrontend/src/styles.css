@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "Trirong", serif;
+        background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 45%;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/004/725/826/original/online-taxi-booking-travel-service-flat-design-illustration-via-mobile-app-on-smartphone-take-someone-to-a-destination-suitable-for-background-poster-or-banner-vector.jpg');
+    /* background-image: url('https://img.freepik.com/premium-vector/online-taxi-booking-travel-service-flat-design-illustration-via-mobile-app-smartphone-take-someone-destination-suitable-background-poster-banner_2175-2005.jpg?w=2000'); */
+    object-fit: contain;
+    
+}

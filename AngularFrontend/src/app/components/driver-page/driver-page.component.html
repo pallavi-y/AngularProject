@@ -1,0 +1,86 @@
+<nav class="navbar navbar-light bg-dark p-2">
+  <a class="navbar-brand" href="#">
+    <img src="https://www.yorkemc.com/wp-content/uploads/eurofins_TINTS_WHITE.png" alt="" style="height:40px ;">
+
+  </a>
+  <button class="btn btn-outline-light my-2 my-sm-0 p-2" type="submit" (click)="onLogout()">LOGOUT</button>
+</nav>
+<div class="container mt-5">
+  <div class="card shadow border-dark" style="min-width: 39rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center"><u><strong>EMPLOYEE LIST (PICK-UP)</strong></u></h5>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">PickUp Time</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td><input type="text"></td>
+          </tr>
+
+
+          <!-- Second Row- Not Required -->
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td><input type="text"></td>
+          </tr>
+
+          <!-- Third Row- Not Required -->
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td><input type="text"></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#" class="btn btn-success">Submit</a>
+    </div>
+  </div>
+
+  <div class="card shadow border-dark mt-4" style="min-width: 39rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center"><u><strong>EMPLOYEE LIST (DROP)</strong></u></h5>
+      <form class="was-validated">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">PickUp Time</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+
+          <tr *ngFor="let item of employeePickUpList">
+            <td>{{item.employee_id}}</td>
+            <td>{{item.Landmark_id}}</td>
+            <td>{{item.Assigned_ride_no}}</td>
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td><input type="text" [(ngModel)]='item.Pick_up_time' required></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+      <a class="btn btn-success" (click)="onSubmitPickUpTime()">Submit</a>
+    </div>
+  </div>
+</div>
