@@ -1,0 +1,121 @@
+<!--<nav class="navbar navbar-light bg-dark p-2">
+    <a class="navbar-brand" href="#">
+        <img src="https://www.yorkemc.com/wp-content/uploads/eurofins_TINTS_WHITE.png" alt="" style="height:40px ;">
+
+    </a>
+    <button class="btn btn-outline-light my-2 my-sm-0 p-2" type="submit" (click)="onLogout()">LOGOUT</button>
+</nav>-->
+
+<div>
+  <app-driver-car-info></app-driver-car-info>
+</div>
+
+<div class="container" style="margin-bottom: 6rem; margin-top: 5rem">
+  <div class="card shadow border-dark" style="min-width: 39rem">
+    <div class="card-body">
+      <h5 class="card-title text-center">
+        <u><strong>EMPLOYEE LIST (PICK-UP)</strong></u>
+      </h5>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Expected PickUp Time</th>
+            <th scope="col">Actual PickUp Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of employeePickUpList">
+            <td>{{ item.puid }}</td>
+            <td>{{ item.landmark }}</td>
+            <td>{{ item.phoneNum }}</td>
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td *ngIf="item.expectedTime=='00:00:00'; else Display">
+              <input
+                type="time"
+                [(ngModel)]="ExpectedPickup"
+                value="ExpectedPickup"
+                name="ExpectedPickup"
+                (change)="SetExpectedPickup(item.puid,ExpectedPickup)"
+                required
+              />
+            </td>
+            <ng-template #Display>
+              <td>{{ item.expectedTime }}</td>
+            </ng-template>
+
+            <td *ngIf="item.actualTime=='00:00:00'; else Display1">
+              <input
+                type="time"
+                [(ngModel)]="ActualPickup"
+                value="ActualPickup"
+                name="ActualPickup"
+                (change)="SetActualPickup(item.puid,ActualPickup)"
+                required
+              />
+            </td>
+            <ng-template #Display1>
+              <td>{{ item.actualTime }}</td>
+            </ng-template>
+
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-success" (click)="onSubmitPickUpTime()">Submit</a>
+    </div>
+  </div>
+
+  <div class="card shadow border-dark mt-4" style="min-width: 39rem">
+    <div class="card-body">
+      <h5 class="card-title text-center">
+        <u><strong>EMPLOYEE LIST (DROP)</strong></u>
+      </h5>
+      <form class="was-validated">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Employee ID</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">Phone Number</th>
+              <th scope="col">Expected Drop Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+
+            <tr *ngFor="let item of employeeDropList">
+              <td>{{ item.puid }}</td>
+            <td>{{ item.landmark }}</td>
+            <td>{{ item.phoneNum }}</td>
+              <!-- Cab Numbers as options( to be populated using API) -->
+              <!--<td><input type="time" [(ngModel)]='item.Pick_up_time' value="drop"  name="drop" required></td>-->
+              <td *ngIf="item.actualTime=='00:00:00'; else Display">
+                <input
+                  type="time"
+                  [(ngModel)]="ActualDrop"
+                  value="ActualDrop"
+                  name="ActualDrop"
+                  (change)="SetActualDrop(item.puid,ActualDrop)"
+                  required
+                />
+              </td>
+              <ng-template #Display>
+                <td>{{ item.actualTime }}</td>
+              </ng-template>
+  
+             
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <a class="btn btn-success" (click)="onSubmitDropTime()">Submit</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-footer></app-footer>
+</div>

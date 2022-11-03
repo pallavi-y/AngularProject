@@ -1,0 +1,63 @@
+<div>
+  <app-adminpage></app-adminpage>
+</div>
+
+<div class="container" style="margin-top:6rem" >
+  <div class="text-center mt-5">
+    <h1>ASSIGNING CAB TO DRIVER</h1>
+  </div>
+
+
+<div class="container sticky-sm-top " style="margin-top:3rem" >
+  <div class="card shadow border-dark" style="min-width: 39rem">
+    <div class="card-body">
+    
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Cab ID - Cab Name</th>
+            <th scope="col">Driver Id - Driver Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+          <tr>
+           
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td>
+              <select #cabs [ngModel]="SelectedCab" (change)="ChangeCab(cabs.value)">
+                <option>--Select--</option>
+                <option *ngFor="let item of Cab">{{item.cabId}} - {{item.cabNumber}} - {{item.cabName}}</option>
+                <!--<option>C02 - Shift </option>
+                <option>C03 - Hyundai </option>-->
+                
+              </select>
+            </td>
+            <td>
+              <select #drivers [ngModel]="SelectedDriver" (change)="ChangeDriver(drivers.value)" >
+                <option>--Select--</option>
+                <option *ngFor="let item of Driver">{{item.driverId}} - {{item.driverName}}</option>
+                
+              </select>
+            </td>
+
+          </tr>
+
+          <!-- Second Row- Not Required -->
+          <tr>
+            
+            
+          </tr>
+
+          <!-- Third Row- Not Required -->
+        </tbody>
+      </table>
+      <a class="btn btn-success" (click)="Submit()">Submit</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-footer></app-footer>
+</div>

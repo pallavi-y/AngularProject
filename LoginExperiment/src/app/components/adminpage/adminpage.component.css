@@ -1,0 +1,25 @@
+li a{
+  font-size: 110%;
+  color: whitesmoke;
+}
+  li a:hover {
+    background-color: #555;
+    color: whitesmoke;
+  }
+  li a:active {
+    background-color: rgb(95, 212, 87);
+  }
+  li a:hover, li a:active {font-size: 120%;}
+ 
+ /* body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 45%;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/004/725/826/original/online-taxi-booking-travel-service-flat-design-illustration-via-mobile-app-on-smartphone-take-someone-to-a-destination-suitable-for-background-poster-or-banner-vector.jpg');
+    /* background-image: url('https://img.freepik.com/premium-vector/online-taxi-booking-travel-service-flat-design-illustration-via-mobile-app-smartphone-take-someone-destination-suitable-background-poster-banner_2175-2005.jpg?w=2000'); */
+   /* object-fit: contain;
+}*/
+
+body{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/406/020/original/abstract-flat-dynamic-orange-and-yellow-fluid-shapes-background-free-vector.jpg');
+}

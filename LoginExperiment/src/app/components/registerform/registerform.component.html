@@ -1,0 +1,209 @@
+<div class="container">
+  <div class="text-center col-md-6 offset-md-3 mt-3">
+    <h1>Registration Form</h1>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-12 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-light">
+        <img
+          src="https://www.pixelstalk.net/wp-content/uploads/images1/Road-markings-motion-photos-3840x2160.jpg"
+          class="w-100"
+          style="
+            border-top-left-radius: 0.3rem;
+            border-top-right-radius: 0.3rem;
+          "
+          alt="Sample photo"
+        />
+        <div class="card-body bg-light">
+          <div class="container col-lg-12">
+            <form
+              name="form"
+              #f="ngForm"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              novalidate
+              [appMatchPassword]="['password', 'confirmPassword']"
+            >
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Password *</label>
+                    <input
+                      placeholder="Please enter new password *"
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      required
+                      minlength="6"
+                      maxlength="40"
+                      #password="ngModel"
+                      [ngClass]="{
+                        'is-invalid': f.submitted && password.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="f.submitted && password.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="password.errors['required']">
+                        Password is required
+                      </div>
+                      <div *ngIf="password.errors['minlength']">
+                        Password must be at least 6 characters
+                      </div>
+                      <div *ngIf="password.errors['maxlength']">
+                        Username must not exceed 40 characters
+                      </div>
+                    </div>
+
+                    <!--<input
+                      placeholder="Please enter new password *"
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      required
+                      #password="ngModel"
+                      [ngClass]="{
+                        'is-invalid': f.submitted && password.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="f.submitted && password.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="password.errors['required']">
+                        Password is required
+                      </div>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Confirm Password *</label>
+                    <input
+                      placeholder="Please enter your password *"
+                      type="password"
+                      class="form-control"
+                      name="confirmPassword"
+                      [(ngModel)]="form.confirmPassword"
+                      required
+                      #confirmPassword="ngModel"
+                      [ngClass]="{
+                        'is-invalid': f.submitted && confirmPassword.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="f.submitted && confirmPassword.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="confirmPassword.errors['required']">
+                        Confirm Password is required
+                      </div>
+                      <div *ngIf="confirmPassword.errors['matching']">
+                        Confirm Password does not match
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Landmark *</label>
+                    <!--<input
+                      placeholder="Please enter your landmark *"
+                      type="text"
+                      class="form-control"
+                      name="landmark"
+                      [(ngModel)]="form.landmark"
+                      required
+                      #landmark="ngModel"
+                      [ngClass]="{
+                        'is-invalid': f.submitted && landmark.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="f.submitted && landmark.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="landmark.errors['required']">
+                        Landmark is required
+                      </div>-->
+                      <!-- <select id="form_landmark" name="landmark" class="form-control" required="required"
+                      data-error="Please specify Landmark." formControlName="landmark" [(ngModel)]="form.landmark" #landmark>
+                      <option value="" selected >--Select--</option>
+                      <option value="BTM Layout">BTM Layout</option>
+                      <option value="">Electronic City</option>
+                      <option value="">Marathalli</option>
+                      <option value="">JP Nagar</option>
+                      <option value="">GB Palya</option>
+                      <option value="">Kormangala </option>
+                      <option value="">Whitefield</option>
+                      <option value="">Silk Board</option>
+                      <option value="">Dommasandra </option>
+                      <option value="">Banashankari</option>
+                      <option value="">Hsr Layout</option>
+                  </select> -->
+
+                  <select
+                  name="landmark"
+                    [(ngModel)]="form.landmark"
+                 
+                    id="form_landmark"
+                   
+                    class="form-control"
+                    required="required"
+                    data-error="Please specify nearest landmark."
+                  >
+                    <option value="" selected disabled>
+                      --Select--
+                    </option>
+                    <option>BTM Layout</option>
+                    <option>SilkBoard</option>
+                    <option>Electronic City</option>
+                    <option>Marathalli</option>
+                    <option>JP Nagar</option>
+                    <option>GB Palya</option>
+                    <option>Kormangala </option>
+                    <option>Whitefield</option>
+                    <option>Dommasandra </option>
+                    <option>Banashankari</option>
+                    <option>Hsr Layout</option>
+                  </select>
+                   
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-3 row p-1 m-4">
+                <div class="d-grid gap-3 offset-md-5 col-3 mt-4">
+                  <div class="form-group">
+                    <button class="btn btn-success" type="submit" >
+                      Register
+                    </button>
+                  </div>
+                </div>
+                </div>
+
+              <!--<div class="d-grid gap-5 col-4 mx-auto mt-4">
+                <div class="form-group">
+                  <button class="btn btn-success" type="submit">
+                    Register
+                  </button>
+                </div>
+              </div>-->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

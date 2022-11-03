@@ -1,0 +1,53 @@
+<nav class="navbar navbar-light bg-dark p-2">
+    <a class="navbar-brand" href="#">
+      <img src="https://www.yorkemc.com/wp-content/uploads/eurofins_TINTS_WHITE.png" alt="" style="height:40px ;">
+  
+    </a>
+    <form class="form-inline">
+       <input  readonly class="text-light bg-dark" [value]="EmpPuid" >
+        <button class="btn btn-outline-light my-2 my-sm-0 " type="submit" (click)="onLogout()">LOGOUT</button>
+      </form>
+  </nav>
+  <div class="row p-5">
+    <div class="card mb-2 bg-danger text-light border-dark shadow-lg text-center">
+        <h5>If the details are not available now, then please check after sometime. Thank You!</h5>
+    </div>
+  </div>
+<div class="row">
+    <div class="col  p-3">
+
+        <br>
+        <div class="card mb-2 border-dark shadow-lg">
+            <div class="card-header text-center text-light bg-dark font-weight-bold">
+                <strong> CAB DETAILS FOR PICKUP</strong>
+            </div>
+            <div class="card-body">
+
+                <p><strong class="text-danger">Cab Number: </strong><input readonly [value]="cabPickUpDetails.cabNumber" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Driver Name: </strong><input readonly isEditable="false"  [value]="cabPickUpDetails.driverName" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Contact Number: </strong><input readonly isEditable="false"  [value]="cabPickUpDetails.driverContactNumber" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Alternate Number </strong><input readonly isEditable="false"  [value]="cabPickUpDetails.driverAltContactNumber" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Expected Pick-Up Time: </strong><input readonly isEditable="false"  [value]="cabPickUpDetails.expectedPickUpTime" style="background-color:lightgray ;"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col  p-3">
+
+        <br>
+        <div class="card mb-2 border-dark shadow-lg">
+            <div class="card-header text-center text-light bg-dark font-weight-bold">
+                <strong> CAB DETAILS FOR DROP</strong>
+            </div>
+            <div class="card-body">
+                
+                <p><strong class="text-danger">Cab Number: </strong><input readonly [value]="cabDropDetails.cabNumber" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Driver Name: </strong><input readonly [value]="cabDropDetails.driverName" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Contact Number: </strong><input readonly [value]="cabDropDetails.driverContactNumber" style="background-color:lightgray ;"></p>
+                <p><strong class="text-danger">Alternate Number: </strong><input readonly [value]="cabDropDetails.driverAltContactNumber" style="background-color:lightgray ;"></p>
+                <br/><br/>
+                </div>
+
+                
+        </div>
+    </div>
+</div>

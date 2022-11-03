@@ -1,0 +1,99 @@
+<nav class="navbar navbar-light bg-dark p-2">
+  <a class="navbar-brand" href="#">
+    <img src="https://www.yorkemc.com/wp-content/uploads/eurofins_TINTS_WHITE.png" alt="" style="height:40px ;">
+
+  </a>
+  <form class="form-inline">
+     <input  readonly class="text-light bg-dark" [value]="EmpPuid" >
+      <button class="btn btn-outline-light my-2 my-sm-0 " type="submit" (click)="onLogout()">LOGOUT</button>
+    </form>
+</nav>
+<section class="h-100 h-custom" >
+
+  <div class="container  py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100" style="margin-bottom:4rem; margin-top: 4rem;">
+      <div class="col-lg-8 col-xl-6" >
+        <div class="card rounded-3 border-dark shadow-lg">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp" class="w-100"
+            style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 text-center"><strong><u>APPLY FOR CAB</u></strong></h3>
+
+            <form class="px-md-2" >
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <!-- DatePicker (non -editable) -uses system date -->
+                  <div class="form-outline datepicker">
+                    <input disabled type="date" class="form-control" isEditable="false" id="exampleDatepicker1"
+                      [value]="todayWithPipe" />
+
+               
+                   
+
+                  </div>
+
+                </div>
+               <!-- <div class="col-md-6 mb-4">
+                  <input type="text" class="form-control" name="employee_id" value="employee_id" id= "employee_id" [(ngModel)]='employee_id' placeholder="Enter Employee ID"/>
+                  <br>
+
+
+                </div>-->
+              </div>
+
+
+              <!-- opting option checkboxes -->
+              <div class="mb-4">
+                <input style="margin-right: 10px;vertical-align: middle;" type="checkbox" id="pickup" name="pickup"
+                  value="pickup" [(ngModel)]="isPickUpCheckBoxSelected">
+                <label for="pickup"> Opt for Pickup</label><br>
+                <input style="margin-right: 10px;vertical-align: middle;" type="checkbox" id="drop" name="vehicle2"
+                  value="drop" [(ngModel)]="isDropCheckBoxSelected">
+                <label for="drop"> Opt for Drop</label><br>
+
+              </div>
+              <button type="submit" (click)="onCabRequest()"
+                [disabled]="!isPickUpCheckBoxSelected && !isDropCheckBoxSelected"
+                class="btn btn-success btn-lg mb-1">Submit</button>
+                <p class="text-danger mt-5"><strong><u>NOTE</u></strong></p>
+                <p class="text-danger">*Employees can only book cab for the next day</p>
+                <p class="text-danger">*This service is available only for employees in general shift (8:00 am to 5:00 pm)</p>
+            </form>
+
+          </div>
+
+        </div>
+        <br>
+
+
+
+        <!-- This is populated using API -->
+        <div *ngFor="let items of cabDetails">
+          <br>
+          <div class="card mb-2">
+            <div class="card-header text-center text-light bg-dark font-weight-bold">
+              <strong> CAB DETAILS</strong>
+            </div>
+            <div class="card-body">
+
+              <p><strong class="text-danger">Cab ID: </strong>{{items.cab_id}}</p>
+              <p><strong class="text-danger">Cab Name: </strong>{{items.cab_name}}</p>
+              <p><strong class="text-danger">Driver ID: </strong>{{items.driver_id}}</p>
+              <p><strong class="text-danger">Driver Name: </strong>{{items.Driver_name}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</section>
+<div style="margin-top:35rem ;">
+  <app-footer></app-footer>
+</div>

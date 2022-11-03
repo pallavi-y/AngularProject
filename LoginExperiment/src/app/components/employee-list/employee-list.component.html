@@ -1,0 +1,93 @@
+<div>
+  <app-adminpage></app-adminpage>
+</div>
+<nav class="navbar navbar-light bg-dark p-2">
+  <a class="navbar-brand" href="#">
+    <img src="https://www.yorkemc.com/wp-content/uploads/eurofins_TINTS_WHITE.png" alt="" style="height:40px ;">
+
+  </a>
+  <button class="btn btn-outline-light my-2 my-sm-0 p-2" type="submit">LOGOUT</button>
+</nav>
+<div class="container mt-2">
+  <div class="card shadow border-dark mt-5" style="min-width: 39rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center">EMPLOYEE LIST (PICKUP)</h5>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">PUID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">Assigned_ride</th>
+            <th scope="col">Select Ride</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+
+          <tr *ngFor="let item of employeePickUpList">
+            <td>{{item.puid}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.landMark}}</td>
+            <td>{{item.assigned_ride_no}}</td>
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td *ngIf="item.assigned_ride_no==0"> <select   [(ngModel)] ="item.Assigned_ride_no" #cabs (change)="myFunctionPickUp(cabs.value, item.puid)">
+                <option *ngFor="let item of PickUpridesAvailableList" value="{{item.rideId}}" > Ride Number:{{item.rideId}}  Occupancy:<span style="color: grey;">{{item.seats}}</span>/<span style="color: grey;">{{item.totalSeats}}</span></option> 
+
+              </select></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+      <a (click)="onSubmitPickupRides()" class="btn btn-success">Submit</a>
+    </div>
+  </div>
+
+  <div class="card shadow border-dark mt-5" style="min-width: 39rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center">EMPLOYEE LIST (DROP)</h5>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">PUID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Landmark</th>
+            <th scope="col">Assigned_ride</th>
+            <th scope="col">Select Ride</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- First Row (Has to be put in ngFor Loop and generated for each employee) -->
+          <tr *ngFor="let item of employeeDropList">
+            <td>{{item.puid}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.landMark}}</td>
+            <td>{{item.assigned_ride_no}}</td>
+            <!-- Cab Numbers as options( to be populated using API) -->
+            <td *ngIf="item.assigned_ride_no==0"> <select [(ngModel)] ="item.assigned_ride_no" #cabs (change)="myFunctionDrop(cabs.value,item.puid)" >
+                <option *ngFor="let item of DropridesAvailableList"  value="{{item.rideId}}"> Ride Number:{{item.rideId}}  Occupancy:<span style="color: grey;">{{item.seats}}</span>/<span style="color: grey;">{{item.totalSeats}}</span></option> 
+                
+              </select></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+      <a (click)="onSubmitDropRides()" class="btn btn-success">Submit</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-footer></app-footer>
+</div>

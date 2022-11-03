@@ -1,0 +1,205 @@
+<div>
+  <app-adminpage></app-adminpage>
+</div>
+
+<div class="container" style="margin-top: 5rem">
+  <div class="text-center mt-5">
+    <h1>ADD CAB DETAILS</h1>
+  </div>
+
+  <div class="row " style="margin-bottom: 7rem;" >
+    <div class="col-lg-8 mx-auto">
+      <div class="card  mx-auto p-4 border-dark shadow">
+        <div class="card-body">
+          <img
+          src="https://th.bing.com/th/id/OIP.XKuDUr42A_5p7OTtYWhQ3AHaEp?pid=ImgDet&w=699&h=439&rs=1"
+          class="w-100"
+          style="
+            border-top-left-radius: 0.3rem;
+            border-top-right-radius: 0.3rem;
+          "
+          alt="Sample photo"
+        />
+          <div class="container">
+            <form
+              name="form"
+              #f="ngForm"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              novalidate
+            >
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Cab Num *</label>
+
+                      <input
+                        placeholder="Please enter Registered Cab Number *"
+                        type="text"
+                        class="form-control"
+                        name="cabNum"
+                        [(ngModel)]="form.cabNum"
+                        required
+                        #cabNum="ngModel"
+                        [ngClass]="{
+                          'is-invalid': f.submitted && cabNum.errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f.submitted && cabNum.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="cabNum.errors['required']">
+                          Cab Num is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Cab Name *</label>
+                      <input
+                        placeholder="Please enter Cab Name *"
+                        type="text"
+                        class="form-control"
+                        name="cabName"
+                        [(ngModel)]="form.cabName"
+                        required
+                        #cabName="ngModel"
+                        [ngClass]="{
+                          'is-invalid': f.submitted && cabName.errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f.submitted && cabName.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="cabName.errors['required']">
+                          Cab Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_name">Seats *</label>
+                      <input
+                        placeholder="Please enter number of seats *"
+                        type="number"
+                        class="form-control"
+                        name="seats"
+                        [(ngModel)]="form.seats"
+                        required
+                        #seats="ngModel"
+                        [ngClass]="{
+                          'is-invalid': f.submitted && seats.errors
+                        }"
+                      />
+                      <div
+                        *ngIf="f.submitted && seats.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="seats.errors['required']">
+                          Number of seats is required
+                        </div>
+                      </div>
+
+                      <!--<input
+                          id="form_name"
+                          type="number"
+                          name="seats"
+                          class="form-control"
+                          placeholder="Please enter number of seats *"
+                          required="required"
+                          data-error="number of seats is required."
+                        />-->
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="form_engineType">Engine Type *</label>
+                      <select
+                      name="engineType"
+                        [(ngModel)]="form.engineType"
+                     
+                        id="form_engineType"
+                       
+                        class="form-control"
+                        required="required"
+                        data-error="Please specify engine type."
+                      >
+                        <option value="" selected disabled>
+                          --Select Your Engine Type--
+                        </option>
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="form_fuel">Fueled *</label>
+                    <select
+
+                      id="form_fuel"
+                      name="fuel"
+                      [(ngModel)]="form.fuel"
+                      class="form-control"
+                      required="required"
+                      data-error="Please select fuel Status."
+                    >
+                      <option value="" selected disabled>
+                        --Select Fuel status--
+                      </option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="form_vehicleStatus">Vehicle status *</label>
+                    <select
+                      id="form_vehicleStatus"
+                      name="vehicleStatus"
+                      [(ngModel)]="form.vehicleStatus"
+                      class="form-control"
+                      required="required"
+                      data-error="Please select vehicle Status."
+                    >
+                      <option value="" selected disabled>
+                        --Select vehicle status--
+                      </option>
+                      <option>Active</option>
+                      <option>Inactive</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+           
+
+                <div class="d-grid gap-3 col-6 mx-auto mt-4">
+                  <button class="btn btn-success" type="submit">ADD CAB</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- /.8 -->
+    </div>
+    <!-- /.row-->
+  </div>
+</div>
+
+<div>
+  <app-footer></app-footer>
+</div>
+

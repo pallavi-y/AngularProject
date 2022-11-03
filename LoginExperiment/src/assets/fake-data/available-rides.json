@@ -1,0 +1,16 @@
+[{
+    "ride_number": "A103",
+    "max_seats": "4",
+    "occupied_seats": "2"
+},
+{
+    "ride_number": "A104",
+    "max_seats": "4",
+    "occupied_seats": "1"
+},
+{
+    "ride_number": "A105",
+    "max_seats": "4",
+    "occupied_seats": "3"
+}
+]
